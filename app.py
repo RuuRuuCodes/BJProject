@@ -116,7 +116,7 @@ def homepage_func():
     st.markdown('In recent years, the increasing integration of IoT devices has raised concerns about cybersecurity.\
     This web application is created for educational purposes to demonstrate the detection of cyberattacks in IoT networks.')
         
-    image_path = "C:\\Users\\OMOLADE\\Desktop\\Batch Jobs\\Done\\BJ project\\iot_devices.jpeg"
+    image_path = "iot_devices.jpeg"
     image = Image.open(image_path)
     st.image(image)
         
