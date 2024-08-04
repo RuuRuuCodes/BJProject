@@ -166,10 +166,6 @@ def detection_page_func():
     if 'attack_detected' not in st.session_state:
         st.session_state.attack_detected = False
 
-    detection_placeholder = st.empty()
-    detection_placeholder.success(st.session_state.detection_result)
-    classification_placeholder = st.empty()
-    
     # Detection button
     if st.button('Detect'):
         st.session_state.attack_detected = detection_func(input_list)
@@ -178,18 +174,21 @@ def detection_page_func():
         else:
             st.session_state.detection_result = 'No Cyberattack Detected. 🟢'
         st.experimental_rerun()
-
         
+    detection_placeholder = st.empty()
+    detection_placeholder.success(st.session_state.detection_result)
+    
+    
     # Classification button
     if st.session_state.attack_detected:
-        classification_placeholder = st.empty()
         if st.button('Classify Attack'):
             st.session_state.classification_result = classifier_func(input_list)
-            classification_placeholder.success(st.session_state.classification_result)
-    else:
-        classification_placeholder.empty()  # Clear classification result if no attack is detected
+    
+    classification_placeholder = st.empty()
+    classification_placeholder.success(st.session_state.classification_result)
+    
 
-            
+
 if __name__ == '__main__':
     main()
     
